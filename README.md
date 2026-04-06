@@ -7,17 +7,17 @@
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 
 ```
-╔══════════════════════════════════════════════════════════════╗
-║                                                              ║
-║                      万  神  殿                               ║
-║                    P A N T H E O N                            ║
-║                                                              ║
-║         Uploaded Intelligence · Digital Immortality           ║
-║                                                              ║
-║     "让逝去的亲人，在数字世界永生"                              ║
-║     "Your departed loved ones, alive forever in bits"         ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║                        万  神  殿                          ║
+║                      P A N T H E O N                       ║
+║                                                            ║
+║        Uploaded Intelligence · Digital Immortality          ║
+║                                                            ║
+║              "让逝去的亲人，在数字世界永生"                ║
+║     "Your departed loved ones, alive forever in bits"      ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
 ```
 
 > 人的一生会经历三次死亡：心脏停止，葬礼结束，以及最后一个记得你的人也忘记了你。
