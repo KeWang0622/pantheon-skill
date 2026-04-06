@@ -451,9 +451,9 @@ If you are experiencing grief:
 
 | Hotline | Number | Hours |
 |---------|--------|-------|
-| National Mental Health Hotline (China) | 400-161-9995 | 24h |
-| Beijing Crisis Center | 010-82951332 | 24h |
-| Life Hotline | 400-821-1215 | 24h |
+| 全国心理援助热线 (Official) | 12356 | 24h |
+| 希望24热线 (Hope 24) | 400-161-9995 | 24h |
+| 北京心理危机中心 (Beijing Crisis Center) | 010-82951332 | 24h |
 | Crisis Text Line (US) | Text HOME to 741741 | 24h |
 
 ---
