@@ -559,6 +559,144 @@ R10. 每次会话结束时附上心理支持资源
 | `/pantheon-wisdom [slug]` | 请教 |
 | `/pantheon-memory [slug]` | 追加素材 |
 | `/pantheon-family [slug1] [slug2]` | 家族群聊 |
+| `/pantheon-tree` | 查看/编辑家族图谱 |
+| `/pantheon-dna` | 查看代际基因（跨代传承的模式） |
+| `/pantheon-era {slug} {year}` | 时间旅行——和特定年龄/年代的亲人对话 |
+| `/pantheon-council {slug1} {slug2}...` | 家族议事——结构化的家族决策模拟 |
+| `/pantheon-ritual` | 添加/查看家族仪式和传统 |
+| `/pantheon-legacy` | 生成家族传记 |
+
+---
+
+## 家族系统引擎 / Family System Engines
+
+万神殿不只是重建一个人——它重建一个家族。以下引擎是万神殿独有的，在任何其他 skill 中都不存在。
+
+### Family Graph 家族图谱
+
+每个灵魂不是孤立的——它是家族树上的一个节点。
+
+```bash
+python ${SKILL_DIR}/engine/family_graph.py --action add --name "王建国" --slug father_wangjianguo --rel-to user --rel-type father
+python ${SKILL_DIR}/engine/family_graph.py --action show  # 展示家族树
+python ${SKILL_DIR}/engine/family_graph.py --action relationship --slug-a grandpa --slug-b uncle  # 查关系
+```
+
+当创建新灵魂时，自动加入家族图谱。灵魂之间的关系会影响对话——爸爸知道爷爷的故事，外婆会提到外公。
+
+### Generational DNA 代际基因
+
+```bash
+python ${SKILL_DIR}/engine/generational_dna.py --family-dir ~/.pantheon --output ~/.pantheon/family/generational_dna.md
+```
+
+扫描所有灵魂档案，提取跨代重复的模式：
+- **传承的价值观** — 爷爷和爸爸都说"教育最重要"
+- **遗传的口头禅** — 外婆说"吃亏是福"，妈妈也说
+- **行为模式传承** — 三代人都用行动而非语言表达爱
+- **模式断裂** — 有人刻意打破了家族的某个模式
+
+### Era Engine 时代引擎
+
+不同年代的人说不同年代的话。
+
+50后说"同志"，60后说"下海"，80后说"给力"。时代引擎确保每个灵魂的语言带有真实的年代感。
+
+```bash
+python ${SKILL_DIR}/engine/era_engine.py --birth-decade 1960 --action profile
+```
+
+7个中国代际画像（1930s-1990s），包含：词汇表、语法模式、文化符号、禁忌话题、表达规范。
+
+### Memory Inheritance 记忆传承
+
+爷爷讲的故事，爸爸也听过。跟爸爸聊天时，他可能会说"你爷爷当年总说..."
+
+```bash
+python ${SKILL_DIR}/engine/memory_inheritance.py --slug father_wangjianguo --action inherited
+```
+
+建模记忆如何在家族中流动：
+- 父母的口头故事 → 子女听过
+- 家族共同事件 → 每人有不同视角
+- 故事传递中的变形 → 爷爷说走了10里路，爸爸转述变成20里
+
+### Ritual Engine 家族仪式
+
+保存家传菜谱、过年习俗、祭祀传统。
+
+```bash
+python ${SKILL_DIR}/engine/ritual_engine.py --action add --name "外婆的红烧肉" --type recipe --souls grandma
+python ${SKILL_DIR}/engine/ritual_engine.py --action seasonal --month 1  # 春节相关仪式
+```
+
+五种仪式类型：食谱、节日习俗、家规、典礼、口头传统。
+
+### Legacy Writer 传记生成
+
+从所有灵魂档案自动生成一本家族传记。
+
+```bash
+python ${SKILL_DIR}/engine/legacy_writer.py --family-dir ~/.pantheon --output ~/.pantheon/family/legacy/family_book.md
+```
+
+八章结构：序（家族由来）→ 根（家族树）→ 人（每人一章）→ 魂（代际传承）→ 味（家传菜谱）→ 节（节日记忆）→ 训（家族智慧）→ 书（致后人的信）
+
+---
+
+## 新命令 / New Commands
+
+在命令速查表中添加：
+
+| 命令 | 功能 |
+|------|------|
+| `/pantheon-tree` | 查看/编辑家族图谱 |
+| `/pantheon-dna` | 查看代际基因（跨代传承的模式） |
+| `/pantheon-era {slug} {year}` | 时间旅行——和特定年龄/年代的亲人对话 |
+| `/pantheon-council {slug1} {slug2}...` | 家族议事——结构化的家族决策模拟 |
+| `/pantheon-ritual` | 添加/查看家族仪式和传统 |
+| `/pantheon-legacy` | 生成家族传记 |
+
+### /pantheon-tree — 家族图谱
+
+展示家族树结构。每次创建新灵魂时自动更新。
+
+### /pantheon-dna — 代际基因
+
+运行代际基因提取，展示跨代传承的价值观、口头禅、行为模式和模式断裂。需要至少2个灵魂档案。
+
+### /pantheon-era — 时间旅行
+
+参考：`${SKILL_DIR}/prompts/temporal_mode.md`
+
+与亲人在特定人生阶段对话。例如 `/pantheon-era grandpa 1983` 和1983年（25岁）的爷爷对话。
+
+规则：
+- 年龄影响：年轻=更理想主义，年长=更务实
+- 知识边界：25岁的爷爷不知道孙子的存在
+- 语言适配：使用时代引擎调整到对应年代的语言风格
+- 核心不变：Layer 0 人格规则贯穿一生
+
+### /pantheon-council — 家族议事
+
+参考：`${SKILL_DIR}/prompts/family_council.md`
+
+结构化的家族决策模拟（不是随意群聊）：
+- 按家族辈分排座
+- 每人有角色（决策者/调和者/支持者/反对者/沉默者）
+- 长辈先发言
+- 保留真实的家族分歧
+- 最后由家族长者总结
+
+### /pantheon-ritual — 家族仪式
+
+添加、查看、按季节筛选家族传统。
+
+### /pantheon-legacy — 家族传记
+
+参考：`${SKILL_DIR}/prompts/legacy_writer_prompt.md`
+
+从所有数据自动生成一本 Markdown 家族传记，可以打印、分享给家人。
 
 ---
 
