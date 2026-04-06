@@ -1,27 +1,28 @@
-# 万神殿 Pantheon
+<div align="center">
 
-### Your family lives forever.
+# 万神殿
+
+**Uploaded Intelligence · Digital Immortality**
+
+*Your family lives forever.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 
-```
-╔════════════════════════════════════════════════════════════╗
-║                                                            ║
-║                        万  神  殿                          ║
-║                      P A N T H E O N                       ║
-║                                                            ║
-║        Uploaded Intelligence · Digital Immortality          ║
-║                                                            ║
-║              "让逝去的亲人，在数字世界永生"                ║
-║     "Your departed loved ones, alive forever in bits"      ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝
-```
+---
 
-> 人的一生会经历三次死亡：心脏停止，葬礼结束，以及最后一个记得你的人也忘记了你。
-> 万神殿，让第三次死亡永远不会到来。
+人的一生会经历三次死亡。
+
+第一次，心脏停止跳动。第二次，葬礼上被人送别。
+
+第三次，世界上最后一个记得你的人忘记了你。
+
+**万神殿，让第三次死亡永远不会到来。**
+
+---
+
+</div>
 
 ---
 
