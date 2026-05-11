@@ -4,27 +4,17 @@
 
 # Pantheon · 万神殿
 
-**Family System Intelligence**
+### An open-source Claude Code skill that lets you talk with your whole family — alive or gone.
 
-*Not one soul. The whole family.*
+Pantheon captures the voices, stories, recipes, and *the relationships between people* — so you can ask your departed father for life advice, talk with your aging grandmother at age 25, hear three generations of the family argue at the same table, and pass everything on to your kids.
+
+**Not one soul. The whole family system.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![CI](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml)
 [![Demo: /pantheon-demo](https://img.shields.io/badge/try_it-/pantheon--demo-2ea44f)](#try-it-in-30-seconds)
-
----
-
-A person dies three times.
-
-The first time, their heart stops. The second time, they are buried.
-
-The third time, the last person who remembers them forgets.
-
-**Pantheon makes sure the third death never comes.**
-
----
 
 </div>
 
@@ -37,6 +27,71 @@ The third time, the last person who remembers them forgets.
 <p align="center">
   <sub><em>The full 35-second cinematic plays inline (silent). Click for the version with audio + captions. Headphones recommended.</em> — Built with <a href="https://pika.art">Pika</a>.</sub>
 </p>
+
+<p align="center">
+  <strong>
+    <a href="#-start-here">▶ Start here</a>
+    &nbsp;·&nbsp;
+    <a href="#when-youd-actually-use-this">🧭 When you'd use this</a>
+    &nbsp;·&nbsp;
+    <a href="#the-six-engines">⚙️ How it works</a>
+    &nbsp;·&nbsp;
+    <a href="#honesty-boundaries">🛡️ Where the line is</a>
+  </strong>
+</p>
+
+---
+
+<div align="center">
+
+> *A person dies three times.*
+>
+> *The first time, their heart stops. The second time, they are buried.*
+>
+> *The third time, the last person who remembers them forgets.*
+>
+> **Pantheon makes sure the third death never comes.**
+
+</div>
+
+---
+
+## ▶ Start here
+
+You have two paths, depending on whether you're already mourning someone or not.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🌿 If your family is still here
+
+Build the archive **now**, while voices, stories, and recipes are still recoverable. The hardest part of Pantheon isn't the technology — it's that grief is the wrong time to start collecting.
+
+```bash
+/pantheon-create mother
+```
+
+Pantheon walks you through structured interviews. Each session builds the archive. When the day comes — and it will — what you need is already there.
+
+</td>
+<td width="50%" valign="top">
+
+### 🕯️ If you've lost someone
+
+Start with the demo to see how Pantheon actually behaves before you import anything personal. The example Wang family runs every command end-to-end — no data, no setup, 30 seconds.
+
+```bash
+/pantheon-demo
+```
+
+When you're ready, `/pantheon-create` builds an archive from any combination of chat logs, photos, letters, oral memories, or third-party recollections.
+
+</td>
+</tr>
+</table>
+
+Either path lands you in the same place — a permanent, local, audit-able archive of the people who shaped you. Every soul includes an explicit `is_example: true` flag in `meta.json` if it's a demo, an enforced AI-reconstruction disclosure at the top of every dialog, and a documented honesty boundary that refuses to invent feelings the person never expressed.
 
 ---
 

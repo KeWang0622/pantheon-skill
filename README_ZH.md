@@ -4,26 +4,18 @@
 
 # 万神殿 · Pantheon
 
-**家族系统智能 / Family System Intelligence**
+### 一个开源 Claude Code skill，让你和整个家族对话——还在的人，和已经走了的人。
 
-*不是一个灵魂。是一整个家族。*
+万神殿捕捉家人的口吻、故事、菜谱，以及**人和人之间的关系**——
+让你能向逝去的爸爸问一个人生抉择，能和奶奶在她 25 岁时聊天，
+能听到三代人在同一张桌子上吵架，也能把这一切留给你的孩子。
+
+**不是一个灵魂。是一整个家族系统。**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![CI](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml)
-
----
-
-人的一生会经历三次死亡。
-
-第一次，心脏停止跳动。第二次，葬礼上被人送别。
-
-第三次，世界上最后一个记得你的人忘记了你。
-
-**万神殿，让第三次死亡永远不会到来。**
-
----
 
 </div>
 
@@ -36,6 +28,78 @@
 <p align="center">
   <sub><em>完整 35 秒静音 720p 直接播放，点击查看带音轨和字幕的版本，建议戴耳机。</em> — 用 <a href="https://pika.art">Pika</a> 制作。</sub>
 </p>
+
+<p align="center">
+  <strong>
+    <a href="#-从这里开始">▶ 从这里开始</a>
+    &nbsp;·&nbsp;
+    <a href="#三十秒上手--try-it-in-30-seconds">⏱ 30秒上手</a>
+    &nbsp;·&nbsp;
+    <a href="#the-six-engines">⚙️ 原理</a>
+    &nbsp;·&nbsp;
+    <a href="#honesty-boundaries">🛡️ 边界在哪</a>
+  </strong>
+</p>
+
+---
+
+<div align="center">
+
+> *人的一生会经历三次死亡。*
+>
+> *第一次，心脏停止跳动。第二次，葬礼上被人送别。*
+>
+> *第三次，世界上最后一个记得你的人忘记了你。*
+>
+> **万神殿，让第三次死亡永远不会到来。**
+
+</div>
+
+---
+
+## ▶ 从这里开始
+
+根据你现在的处境，万神殿有两条入口：
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🌿 家人都还在
+
+**趁现在**建档。声音、故事、菜谱都还回得来。
+万神殿最难的部分不是技术——是悲伤的那一刻才是最坏的开始时间。
+
+```bash
+/pantheon-create mother
+```
+
+万神殿带你走一遍结构化访谈。每次都在补这份档。当那一天来的时候——
+它会来的——你需要的东西已经在那里。
+
+</td>
+<td width="50%" valign="top">
+
+### 🕯️ 已经失去了某个人
+
+从示例家族开始，先看万神殿真实运行的样子，不需要先上传任何个人材料。
+内置的虚构王家三代支持全部命令——30 秒，零设置。
+
+```bash
+/pantheon-demo
+```
+
+准备好之后，`/pantheon-create` 可以从微信、短信、照片、信件、口述、第三方
+回忆等任何组合里建一份真实档案。
+
+</td>
+</tr>
+</table>
+
+两条路通向同一个地方——一份**永久、本地、可审计**的家族档案，
+属于那些塑造你的人。每个 soul 在 `meta.json` 里显式标记 `is_example`，
+对话开头强制显示"AI 重建"声明，并有明确的诚实边界——
+逝者没说过的话，重建不替他说。
 
 ---
 
