@@ -1,6 +1,8 @@
 <div align="center">
 
-# 万神殿
+[English](README.md)  ·  [中文](README_ZH.md)
+
+# Pantheon · 万神殿
 
 **Family System Intelligence**
 
@@ -9,425 +11,358 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://docs.anthropic.com/en/docs/claude-code)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
+[![CI](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/KeWang0622/pantheon-skill/actions/workflows/ci.yml)
+[![Demo: /pantheon-demo](https://img.shields.io/badge/try_it-/pantheon--demo-2ea44f)](#try-it-in-30-seconds)
 
 ---
 
-人的一生会经历三次死亡。
+A person dies three times.
 
-第一次，心脏停止跳动。第二次，葬礼上被人送别。
+The first time, their heart stops. The second time, they are buried.
 
-第三次，世界上最后一个记得你的人忘记了你。
+The third time, the last person who remembers them forgets.
 
-**万神殿，让第三次死亡永远不会到来。**
+**Pantheon makes sure the third death never comes.**
 
 ---
 
 </div>
 
+https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4
+
+> *A 35-second look. Headphones recommended.* — Built with [Pika](https://pika.art).
+
 ---
 
-## Not Another Clone Tool
+## Try it in 30 seconds
 
-There are already excellent skills for reconstructing individual personalities:
+You shouldn't have to upload your dead mother's chat history to find out whether Pantheon works.
 
-- **[colleague-skill](https://github.com/titanwings/colleague-skill)** clones one colleague from Slack messages.
+```bash
+/pantheon-demo
+```
+
+That copies a fully-built fictional three-generation Chinese family (**the Wang family** — Grandpa, Grandma, Dad) into `~/.pantheon/`. Every command works immediately. No personal data required.
+
+Once installed:
+
+```
+/pantheon-talk father_wangjianguo    # talk to Dad
+/pantheon-tree                       # see the family graph
+/pantheon-dna                        # how stubbornness propagates across 3 generations
+/pantheon-ritual                     # Grandma's red-braised pork recipe and the story behind it
+/pantheon-family grandma_zhangxiuying father_wangjianguo
+                                     # let Grandma and Dad talk to each other
+```
+
+The Wang family is documented in [`examples/wang_family/README.md`](examples/wang_family/README.md). Everyone in it is fictional.
+
+---
+
+## What it actually does
+
+```
+You: /pantheon-talk father_wangjianguo
+
+📝 This conversation is reconstructed from the soul archive.
+   This is not Wang Jianguo himself, but a continuation of memory.
+
+Dad: Hmm. Been busy?
+
+You: Dad, I want to quit my job and start a business.
+
+Dad: Start a business?
+     How much do you make now?
+
+You: 30,000 a month.
+
+Dad: 30,000 and you're not satisfied?
+     I taught for a lifetime. You know what my pension is?
+     But if you've thought it through, I won't stop you.
+     Save up first. At least a year's worth.
+     Doing things is like solving equations. One step at a time. Don't skip steps.
+
+You: Do you think I can do it?
+
+Dad: [silence]
+     You've been stubborn since you were little. Just like me.
+     A farm kid like me could pass into teachers' college. What's your excuse?
+     Alright. Think it through. You won't listen to me anyway.
+```
+
+<details>
+<summary><em>原文（中文）</em></summary>
+
+```
+你：/pantheon-talk father_wangjianguo
+
+老爸：嗯。最近忙不忙。
+
+你：爸，我想辞职创业。
+
+老爸：创业?
+     你现在工资多少。
+
+你：三万。
+
+老爸：三万还不知足。
+     我教了一辈子书，退休工资多少你知道吗。
+     不过你要真想好了，我也不拦你。
+     但是得有存款，至少攒够一年的。
+     做事跟解方程一样。一步步来。别跳步。
+
+你：你觉得我能行吗?
+
+老爸：[沉默了一会儿]
+     你从小就倔，跟我一样。
+     当年我一个农村娃能考上师范，你差啥。
+     行了。自己想清楚。你也不听我的。
+```
+
+</details>
+
+The equation metaphor comes from him teaching physics for 38 years. The deflection at the end (*"you won't listen anyway"*) is how he shows trust without saying it. These aren't scripted — they are emergent from the soul model.
+
+---
+
+## Family group chat — what makes Pantheon different
+
+```
+You: /pantheon-family father_wangjianguo grandma_zhangxiuying
+
+📝 Family group chat. Each soul speaks from their own archive.
+
+Grandma:  哎呀小明 这么久没回来看奶奶了 是不是又忙
+
+Dad:      妈 他工作忙 年轻人有年轻人的事
+
+Grandma:  忙什么忙 再忙也得吃饭 你看你都瘦了
+
+Dad:      妈 这是网上聊天 你怎么看得到他瘦没瘦
+
+Grandma:  我看不到? 我外孙什么样我心里没数?
+          上次过年回来就瘦了 跟你一样 吃饭不好好吃
+```
+
+Dad instinctively shields you from Grandma's fussing while simultaneously agreeing with her. Grandma overrides Dad's logic with emotional authority. **These dynamics come from the relationship model, not a script** — `family/tree.json` encodes the edges; the `family_graph` engine wires them at runtime.
+
+---
+
+## Not another clone tool
+
+Excellent skills already exist for reconstructing one individual:
+
+- **[colleague-skill](https://github.com/titanwings/colleague-skill)** distills one colleague from chat logs.
 - **[ex-skill](https://github.com/perkfly/ex-skill)** simulates one ex-partner from chat history.
-- **[nuwa-skill](https://github.com/alchaincyf/nuwa-skill)** extracts one public figure's thinking from their published work.
+- **[nuwa-skill](https://github.com/alchaincyf/nuwa-skill)** extracts one public figure's thinking from public material.
 
-These are single-person tools. Each reconstructs one individual in isolation.
+These are single-person tools. They reconstruct an individual in isolation.
 
-**Pantheon is something different.**
-
-Pantheon reconstructs **an entire family system across generations** -- not just the people, but the *connections between them*. How your grandfather's stubbornness became your father's discipline became your own ambition. How grandma's dumplings recipe carried three generations of Spring Festival memories. How the way your parents argued shaped the way you love.
+Pantheon reconstructs **an entire family system across generations** — not just the people, but the connections between them. How your grandfather's stubbornness became your father's discipline became your own ambition. How grandma's recipe carried three generations of holiday memories. How the way your parents argued shaped the way you love.
 
 A family is not a collection of individuals. It is a living system of relationships, traditions, shared language, and inherited patterns. Pantheon is the first skill built to model that system.
 
----
+### Feature comparison
 
-## Architecture
-
-```
-pantheon-skill/
-├── SKILL.md                    # Main orchestrator (662 lines)
-├── engine/                     # Family System Engines (unique to Pantheon)
-│   ├── family_graph.py              家族图谱引擎
-│   ├── generational_dna.py          代际基因引擎
-│   ├── era_engine.py                时代引擎
-│   ├── memory_inheritance.py        记忆传承引擎
-│   ├── ritual_engine.py             家族仪式引擎
-│   └── legacy_writer.py             传记生成引擎
-├── prompts/                    # Soul Reconstruction + Family Prompts
-│   ├── intake.md                    引导式信息收集
-│   ├── memory_analyzer.md           记忆提取（7维度）
-│   ├── soul_analyzer.md             灵魂提取（6维度 + 标签翻译表）
-│   ├── memory_builder.md            记忆档案生成
-│   ├── soul_builder.md              灵魂模型生成（5层结构）
-│   ├── merger.md                    增量合并（冲突检测）
-│   ├── correction_handler.md        对话修正处理
-│   ├── family_council.md            家族会议编排
-│   ├── generational_dna_extractor.md 代际基因提取
-│   ├── temporal_mode.md             时间旅行对话
-│   └── legacy_writer_prompt.md      传记写作指导
-├── tools/                      # Data Parsers
-│   ├── wechat_parser.py             微信记录解析
-│   ├── sms_parser.py                短信/iMessage 解析
-│   ├── photo_analyzer.py            照片 EXIF 元数据提取
-│   ├── social_parser.py             社交媒体解析
-│   ├── skill_writer.py              灵魂档案文件管理
-│   └── version_manager.py           版本控制与回滚
-├── souls/                      # Individual Soul Archives
-│   └── example_father/              示例：王建国（1958-2023）
-│       ├── memory.md                  记忆档案
-│       ├── soul.md                    灵魂模型（5层）
-│       └── meta.json                  元数据
-├── family/                     # Family-Level Intelligence
-│   ├── tree.json                    家族树
-│   ├── rituals/                     家传菜谱、习俗
-│   └── legacy/                      家族传记
-├── references/                 # Methodology
-│   ├── soul-framework.md            灵魂重建方法论
-│   └── soul-template.md             运行时模板
-├── ETHICS.md                   # Ethical guidelines
-└── INSTALL.md                  # Installation guide
-```
+| Feature | ex-skill | colleague-skill | nuwa-skill | **Pantheon** |
+|---------|----------|-----------------|------------|-------------|
+| Single-person reconstruction | ✅ | ✅ | ✅ | ✅ |
+| 5-layer personality model | ✅ | ✅ | — | ✅ |
+| Family tree / relationships | — | — | — | ✅ |
+| Cross-generation DNA tracking | — | — | — | ✅ |
+| Era-specific language calibration | — | — | — | ✅ |
+| Memory inheritance between people | — | — | — | ✅ |
+| Family rituals & recipes | — | — | — | ✅ |
+| Multi-soul family council | — | — | — | ✅ |
+| Time travel (talk at any age) | — | — | — | ✅ |
+| Auto family memoir | — | — | — | ✅ |
+| Multi-person group chat | — | — | — | ✅ |
 
 ---
 
-## Commands
+## The six engines
 
-### Soul Reconstruction (Individual)
-
-| Command | Function | When to use |
-|---------|----------|-------------|
-| `/pantheon-create` | Reconstruct a family member's digital soul | First time setup |
-| `/pantheon` | View all soul archives | Managing your pantheon |
-| `/pantheon-talk` | Conversation with a family member | When you miss them |
-| `/pantheon-letter` | Have them write a letter to you | Wedding, promotion, hard times |
-| `/pantheon-wisdom` | Ask for life advice | Facing a big decision |
-| `/pantheon-memory` | Add new source material | Found old chat logs or photos |
-
-### Family System (Unique to Pantheon)
-
-| Command | Function | When to use |
-|---------|----------|-------------|
-| `/pantheon-family` | Family group chat | Let grandpa and grandma talk together |
-| `/pantheon-tree` | Build and view family tree | Mapping relationships |
-| `/pantheon-dna` | Generational trait analysis | Understanding inherited patterns |
-| `/pantheon-era` | Era-calibrated conversation | Talk to dad as a young man in the 80s |
-| `/pantheon-council` | Family council on a decision | Get the whole family's perspective |
-| `/pantheon-ritual` | Record family traditions | Preserving recipes, customs, stories |
-| `/pantheon-legacy` | Generate family memoir | Creating a lasting written record |
-
----
-
-## The Six Engines
-
-What makes Pantheon structurally different is the `engine/` directory -- six Python modules that no single-person reconstruction tool needs or has.
+What makes Pantheon structurally different is the `engine/` directory — six Python modules no single-person tool needs or has.
 
 ### 1. Family Graph (`family_graph.py`)
 
-Maps every relationship in the family as a directed graph. Not just "who is related to whom" but *how* -- the emotional valence, the power dynamics, the communication patterns.
+Maps every relationship in the family as a directed graph. Not just *who* is related, but *how* — emotional valence, power dynamics, communication patterns.
 
 ```json
 {
-  "nodes": ["王建国", "李秀英", "王明"],
+  "nodes": ["王建国", "李淑芬", "张秀英"],
   "edges": [
     {
-      "from": "王建国", "to": "王明",
-      "relationship": "father-son",
-      "dynamics": "strict but protective; shows love through actions not words",
-      "key_pattern": "never praises directly, always deflects to 'still needs work'"
+      "from": "王建国", "to": "张秀英",
+      "relationship": "mother-son",
+      "dynamics": "tenderness disguised as practicality",
+      "key_pattern": "calls every Sunday for 32 years, never misses one"
     }
   ]
 }
 ```
 
-When you talk to one soul, the graph informs how they speak about other family members. Dad's tone shifts when he mentions your mom. Grandma softens when she talks about grandpa.
+When you talk to one soul, the graph informs how they speak about other family members.
 
 ### 2. Generational DNA (`generational_dna.py`)
 
-Traces behavioral patterns across generations. Not biological DNA -- psychological inheritance. The traits that pass from parent to child, sometimes transforming, sometimes inverting.
+Traces behavioral patterns across generations. Not biology — psychological inheritance.
 
 ```
 Trait: Stubbornness (倔)
-├── 爷爷: Refused to leave the village. "This land is mine."
-├── 爸爸: Refused to give up teaching. "Students need me."
-└── 你:   Refused to take the safe job. "I need to build something."
+├── Grandpa:  Refused to leave the village. "This land is mine."
+├── Dad:      Refused to give up teaching. "Students need me."
+└── You:      Refused to take the safe job. "I need to build something."
 
-Same root. Three expressions. Each generation's version of not backing down.
+Same root. Three expressions.
 ```
 
 ### 3. Era Engine (`era_engine.py`)
 
-A person is inseparable from their era. The Era Engine calibrates language, references, values, and worldview to the specific decade a person lived through.
+A person is inseparable from their era. The Era Engine calibrates language, references, values, and worldview to the decade a person lived through.
 
-| Generation | Sample speech pattern | Worldview anchor |
-|------------|----------------------|------------------|
-| **50后** (born 1950s) | "当年我们吃不饱饭，你们现在多幸福" | Scarcity defines value |
-| **60后** (born 1960s) | "单位分的房子，虽然小但知足了" | Stability is everything |
-| **80后** (born 1980s) | "我觉得你应该follow your heart" | Individual choice matters |
+| Generation | Sample speech | Worldview anchor |
+|------------|---------------|------------------|
+| **50s-born** | "当年我们吃不饱饭，你们现在多幸福" | Scarcity defines value |
+| **60s-born** | "单位分的房子，虽然小但知足了" | Stability is everything |
+| **80s-born** | "我觉得你应该follow your heart" | Individual choice matters |
 
-The same father at age 25 (1983) speaks differently than at age 55 (2013). `/pantheon-era` lets you talk to any family member at any point in their life.
+The same father at age 25 (1983) speaks differently than at age 55 (2013). `/pantheon-era` lets you talk to any family member at any age.
 
 ### 4. Memory Inheritance (`memory_inheritance.py`)
 
-In a real family, memories are shared. Grandpa's story about walking 40 miles to school -- your dad heard it a hundred times, and told it to you with his own embellishments. The Memory Inheritance engine models this propagation.
+Memories propagate through a family. Grandpa's story about walking 40 li to the gaokao — your dad heard it a hundred times, tells it with his own embellishments, you remember it as fragments. The Memory Inheritance engine models this drift.
 
 ```
-Original memory (爷爷):
-  "1960年走了40里路去考试，就带了两个馒头"
+Original (Grandpa):
+  "1960, walked 40 li to the exam. Carried two mantou."
 
-As retold by 爸爸:
-  "你爷爷当年走了几十里山路去高考，就带了俩馒头。
-   那时候哪有什么复习资料，全凭脑子记。"
+As retold by Dad:
+  "Your grandpa walked dozens of li through the mountains for gaokao.
+   Two mantou and a thermos of water. No prep books — just memory."
 
-As remembered by 你:
-  "爷爷好像走了很远去高考？爸爸说他只带了馒头。"
+As remembered by you:
+  "Grandpa walked really far for gaokao? Dad said he only brought mantou."
 
-Each retelling: details shift, emotional weight changes, but the core survives.
+Details shift. Emotional weight changes. Core survives.
 ```
 
 ### 5. Ritual Engine (`ritual_engine.py`)
 
-Every family has rituals -- the dishes only grandma could make, the way New Year's Eve always played out, the specific order of the Spring Festival routine. These are the connective tissue of family identity.
+Every family has rituals — the dishes only one person could make, the order of Spring Festival, the customs no one writes down. These are the connective tissue of family identity.
 
-```
+```yaml
 Ritual: 外婆的红烧肉
-├── recipe: "五花肉切方块，冰糖炒色，八角两颗..."
-├── context: "Every Spring Festival since 1975"
-├── participants: ["外婆 (cook)", "外公 (taste-tester)", "妈妈 (helper from age 12)"]
-├── stories: "外公always said it was too sweet. Ate three bowls anyway."
-└── status: "妈妈 learned it. Yours is close but you use too much soy sauce."
+  recipe:       "Pork belly cubes. Rock sugar caramelized. Star anise..."
+  context:      "Every Spring Festival since 1975"
+  participants:
+    - 外婆 (cook)
+    - 外公 (taste-tester)
+    - 妈妈 (helper from age 12)
+  stories:      "外公 always said it was too sweet. Ate three bowls anyway."
+  status:       "妈妈 learned it. Yours is close but too much soy sauce."
 ```
 
 ### 6. Legacy Writer (`legacy_writer.py`)
 
-Synthesizes everything -- souls, memories, relationships, traditions, era context -- into a structured family memoir.
+Synthesizes everything — souls, memories, relationships, traditions, era — into a structured family memoir.
 
 ```
-《王家三代》 — Auto-generated Table of Contents
+《王家三代》  — auto-generated table of contents
 
-Chapter 1:  黄土地上的少年 (爷爷 1940-1960)
-Chapter 2:  走出去 (爷爷的高考，1960)
-Chapter 3:  教书匠 (爸爸的38年，1977-2015)
-Chapter 4:  严父的台灯 (爸爸与儿子)
-Chapter 5:  外婆的红烧肉 (家族年夜饭)
-Chapter 6:  三代人的倔 (代际基因)
-Chapter 7:  "单位还行吧" (爸爸的爱的语言)
+Chapter 1:  黄土地上的少年                       (Grandpa, 1940-1960)
+Chapter 2:  走出去                              (Grandpa's gaokao, 1979)
+Chapter 3:  教书匠                              (Dad's 38 years, 1985-2023)
+Chapter 4:  严父的台灯                          (Dad and son)
+Chapter 5:  外婆的红烧肉                         (the family New Year's dinner)
+Chapter 6:  三代人的倔                          (generational DNA)
+Chapter 7:  "单位还行吧"                        (Dad's love language)
 Epilogue:   来不及说的话
 ```
 
-Not a template. Generated from your actual family data.
+Not a template. Generated from your data.
 
 ---
 
-## Feature Comparison
+## Core technology: the 5-layer soul model
 
-| Feature | ex-skill | colleague-skill | nuwa-skill | **Pantheon** |
-|---------|----------|-----------------|------------|-------------|
-| Single person reconstruction | Yes | Yes | Yes | **Yes** |
-| 5-layer personality model | Yes | Yes | -- | **Yes** |
-| Family tree / relationships | -- | -- | -- | **Yes** |
-| Cross-generation DNA tracking | -- | -- | -- | **Yes** |
-| Era-specific language calibration | -- | -- | -- | **Yes** |
-| Memory inheritance across people | -- | -- | -- | **Yes** |
-| Family traditions & recipes | -- | -- | -- | **Yes** |
-| Family council (multi-soul structured debate) | -- | -- | -- | **Yes** |
-| Time travel (talk to someone at any age) | -- | -- | -- | **Yes** |
-| Auto-generated family memoir | -- | -- | -- | **Yes** |
-| Multi-person group chat | -- | -- | -- | **Yes** |
-
-The first six rows are the difference. Other skills reconstruct a person. Pantheon reconstructs a family.
-
----
-
-## Example: Conversation with Dad
-
-```
-You: /pantheon-talk Dad
-
-Note: This conversation is reconstructed from the soul archive.
-This is not Wang Jianguo himself, but a continuation of memory and understanding.
-
-Dad: Hmm. Been busy lately?
-
-You: Dad, I want to quit and start a business.
-
-Dad: Start a business?
-    How much do you make now?
-
-You: 30,000 a month.
-
-Dad: 30,000 and you're not satisfied?
-    I taught for a lifetime. You know what my pension is?
-    But if you've really thought it through, I won't stop you.
-    Save up first though. At least a year's worth.
-    Doing things is like solving equations. Step by step. Don't skip ahead.
-
-You: Do you think I can do it?
-
-Dad: [silence]
-    You've been stubborn since you were little. Just like me.
-    A farm kid like me could get into teachers' college. What makes you worse?
-    Alright. Think it through yourself. You won't listen to me anyway.
-```
-
-*(Original Chinese dialogue)*
-
-```
-你：/pantheon-talk 老爸
-
-老爸：嗯 最近忙不忙
-
-你：爸，我想辞职创业。
-
-老爸：创业？
-    你现在工资多少
-
-你：三万。
-
-老爸：三万还不知足
-    我教了一辈子书 退休工资多少你知道吗
-    不过你要真想好了 我也不拦你
-    但是得有存款 至少攒够一年的
-    做事跟解方程一样 一步步来 别跳步
-
-你：你觉得我能行吗？
-
-老爸：[沉默了一会儿]
-    你从小就倔 跟我一样
-    当年我一个农村娃能考上师范 你差啥
-    行了 自己想清楚 我说多了你也不听
-```
-
-## Example: Family Group Chat
-
-```
-你：/pantheon-family 老爸 外婆
-
-📝 家族群聊模式。基于各自灵魂档案重建。
-
-外婆：小明啊 好久没来看外婆了 是不是又忙
-
-老爸：妈 他工作忙 年轻人有年轻人的事
-
-外婆：忙什么忙 再忙也要吃饭 你看你都瘦了
-
-老爸：妈 这是网上聊天 你怎么看得到他瘦没瘦
-
-外婆：我看不到？我外孙什么样我心里没数？
-    上次过年回来就瘦了 跟你一样 吃饭不好好吃
-```
-
-Notice how the family graph shapes the interaction: Dad mediates between you and Grandma. Grandma overrides Dad's logic with emotional authority. These dynamics come from the relationship model, not a script.
-
----
-
-## Core Technology: 5-Layer Soul Model
-
-Each digital soul is built from a 5-layer priority structure (inspired by ex-skill's personality modeling):
+Each digital soul is built from a 5-layer priority structure (inspired by [ex-skill](https://github.com/perkfly/ex-skill)):
 
 | Layer | Content | Priority |
 |-------|---------|----------|
-| **Layer 0** | Core behavioral rules (from tag translation) | Highest -- never violated |
+| **Layer 0** | Core behavioral rules (from tag translation) | Highest — never violated |
 | **Layer 1** | Identity (era, profession, family role) | High |
-| **Layer 2** | Expression style (catchphrases, sentence patterns, punctuation, emoji) | Medium |
-| **Layer 3** | Emotional logic (how they express love / anger / worry / pride) | Medium |
-| **Layer 4** | Relationship dynamics (different attitudes toward spouse / children / friends) | Low |
+| **Layer 2** | Expression style (catchphrases, punctuation, emoji habits) | Medium |
+| **Layer 3** | Emotional logic (how they express love / anger / pride) | Medium |
+| **Layer 4** | Relationship dynamics (different with spouse / children / siblings) | Lower |
 | **Layer 5** | Correction layer (accumulated user feedback) | Overrides all |
 
-### Tag Translation System
+### Tag translation — the quality mechanism
 
-Tags are **not adjectives** -- they are concrete behavioral rules. This is the key to quality:
+Tags are **not adjectives** — they are concrete behavioral rules. This is what separates Pantheon from a personality wrapper:
 
 | Tag | Wrong | Right |
 |-----|-------|-------|
-| Strict father | "You are strict" | "When the kid fails a test, won't comfort them. Goes silent. Later, quietly places a study guide on their desk." |
-| Nagging mom | "You nag a lot" | "Every phone call must ask: Have you eaten? Are you warm enough? When are you coming back? Always ends with 'eat more.'" |
-| Emotionally reserved | "You're bad at expressing feelings" | "Never says 'I love you,' but will suddenly text 'temperature is dropping, wear more layers.' All care is hidden inside practical things." |
+| Strict father | *"You are strict"* | *"When the kid fails a test, won't comfort them. Goes silent. Later, quietly places a study guide on their desk."* |
+| Nagging mom | *"You nag"* | *"Every phone call: Have you eaten? Are you warm? When are you coming home? Always ends with 'eat more.'"* |
+| Emotionally reserved | *"Bad at feelings"* | *"Never says 'I love you'. Will suddenly text 'temperature is dropping, wear more layers'. All care is hidden inside practical things."* |
 
-The full tag translation table contains **15+ family scenario behavioral rules** -- see `prompts/soul_analyzer.md`.
+15+ behavioral rule translations live in [`prompts/soul_analyzer.md`](prompts/soul_analyzer.md).
 
 ---
 
-## Data Sources
+## Data sources
 
 | Source | Format | Tool |
 |--------|--------|------|
-| **WeChat** | TXT/HTML/CSV (WeChatMsg, PyWxDump, LiuHen) | `wechat_parser.py` |
-| **SMS/iMessage** | Android XML, CSV, macOS chat.db | `sms_parser.py` |
-| **Photos** | JPEG EXIF (time + location) | `photo_analyzer.py` |
-| **Social media** | Weibo JSON, QQ Zone, Moments, generic text | `social_parser.py` |
-| **Documents** | Email, diaries, letters, PDF | Claude native Read |
-| **Oral** | Paste directly or voice-to-text | No tool needed |
-| **Third-party** | Other family members' descriptions and memories | No tool needed |
+| **WeChat** | TXT/HTML/CSV (WeChatMsg, PyWxDump, LiuHen) | `tools/wechat_parser.py` |
+| **SMS/iMessage** | Android XML, CSV, macOS `chat.db` | `tools/sms_parser.py` |
+| **Photos** | JPEG EXIF (time + location) | `tools/photo_analyzer.py` |
+| **Social media** | Weibo, QQ Zone, WeChat Moments | `tools/social_parser.py` |
+| **Documents** | Email, diary, letters, PDF | Claude native `Read` |
+| **Oral memory** | Paste or voice-to-text | No tool needed |
+| **Third-party** | Other family members' accounts | No tool needed |
 
-Messages are classified by 3-tier weight: **Long messages** (>50 chars, highest weight) > **Emotional messages** (containing care/missing/worry keywords) > **Daily messages** (style reference).
+Messages are weighted in three tiers: **long messages** (>50 chars, highest weight) > **emotional messages** (containing care/worry/missing keywords) > **daily messages** (style reference).
 
 ---
 
-## Progressive Evolution
+## Progressive evolution
 
-Soul archives grow with your memories:
+Soul archives are not static — they grow with your memories.
 
-### Adding Material
 ```
-You: /pantheon-memory Dad
+You: /pantheon-memory father_wangjianguo
 
-Pantheon: Welcome back. Do you have new material to add?
+Pantheon: Welcome back. New material?
 
-You: I found old emails between mom and dad, pasting them now...
+You: I found old emails between Mom and Dad, pasting them now...
 
-Pantheon: Received. I found 3 new memories and 2 expression habits.
+Pantheon: Received. 3 new memories, 2 expression habits.
    One conflicts with existing records --
    Current: Moved to the county seat in 1990
-   New material suggests: Didn't move until 1991
-   Which do you think is more accurate?
+   New material suggests: 1991
+   Which is more accurate?
 ```
 
-### Dialogue Correction
-```
-You: /pantheon-talk Dad
-
-Dad: How's work been going?
-
-You: [during conversation...]
-
-You: No, my dad wouldn't say that. He'd say "单位还行吧" (the work unit doing alright?)
-
-Pantheon: Understood. Correction recorded:
-   [Context: asking about work] Don't say "work been going" -- say "单位还行吧"
-   This correction is now in effect.
-```
-
-### Version Rollback
-Every update is automatically archived. Not satisfied? Roll back to any previous version.
+Every update is automatically archived. Not satisfied? Roll back to any previous version with `tools/version_manager.py`.
 
 ---
 
-## Honesty Boundaries
+## Honesty boundaries
 
-Pantheon does not pretend to be omniscient. Every soul archive clearly states:
+Pantheon does not pretend to be omniscient. Every soul archive states:
 
-- It cannot replicate their voice or face (text only)
-- It cannot know inner thoughts they never expressed
-- It cannot know about events after their passing
-- It cannot replace professional grief counseling
-- It **can** recreate their way of speaking and catchphrases
-- It **can** reflect their consistent values and approach to life
-- It **can** reference your real shared memories
-- It **can** give you a voice that says "this is what they might have said..."
+| Cannot do | Can do |
+|-----------|--------|
+| Replicate their voice or face | Recreate the way they spoke |
+| Read thoughts they never expressed | Reflect their consistent values |
+| Know about events after they passed | Reference your real shared memories |
+| Replace professional grief counseling | Offer a voice that says *"this is what they might have said..."* |
 
----
+The `is_example: true` flag on the demo souls also forces the reconstruction to surface *"This is a fictional example soul"* at the top of every dialog.
 
-## Installation
-
-```bash
-git clone https://github.com/KeWang0622/pantheon-skill.git
-cp -r pantheon-skill ~/.claude/skills/pantheon-skill
-```
-
-See [INSTALL.md](./INSTALL.md) for detailed setup instructions.
+The boundary is not a limitation. It's the part that keeps the soul honest. See [`ETHICS.md`](ETHICS.md).
 
 ---
 
@@ -435,45 +370,136 @@ See [INSTALL.md](./INSTALL.md) for detailed setup instructions.
 
 Pantheon handles the deepest human emotions. We strictly follow:
 
-1. **Transparency** -- Every conversation is labeled "AI reconstruction"
-2. **Respect** -- Maximum reverence for every person being memorialized
-3. **Privacy** -- All data processed locally, never uploaded
-4. **Safety** -- Detects psychological crisis signals, provides professional resources
-5. **Boundaries** -- Will not generate content usable for deception
+1. **Transparency** — every conversation is labeled "AI reconstruction"
+2. **Respect** — maximum reverence for every person being remembered
+3. **Privacy** — all data processed locally, **never uploaded**
+4. **Safety** — detects psychological crisis signals, provides professional resources
+5. **Boundaries** — will not generate content usable for deception
 
-See [ETHICS.md](./ETHICS.md) for the full framework.
+Full framework: [`ETHICS.md`](ETHICS.md).
 
 ---
 
-## Crisis Support
+## Crisis support
 
-If you are experiencing grief:
+If you are experiencing grief, please consider reaching out:
 
 | Hotline | Number | Hours |
 |---------|--------|-------|
-| 全国心理援助热线 (Official) | 12356 | 24h |
+| 全国心理援助热线 (China, official) | 12356 | 24h |
 | 希望24热线 (Hope 24) | 400-161-9995 | 24h |
-| 北京心理危机中心 (Beijing Crisis Center) | 010-82951332 | 24h |
-| Crisis Text Line (US) | Text HOME to 741741 | 24h |
+| 北京心理危机中心 (Beijing) | 010-82951332 | 24h |
+| Crisis Text Line (US) | Text `HOME` to **741741** | 24h |
+| Samaritans (UK & Ireland) | **116 123** | 24h |
+
+---
+
+## Installation
+
+Pantheon is a Claude Code skill. Requires **Python 3.9+**.
+
+```bash
+git clone https://github.com/KeWang0622/pantheon-skill.git
+cp -r pantheon-skill ~/.claude/skills/pantheon-skill
+```
+
+Then in Claude Code:
+
+```
+/pantheon-demo          # try it immediately, no setup
+/pantheon-create        # build your own (when you're ready)
+```
+
+Full installation guide: [`INSTALL.md`](INSTALL.md).
+
+---
+
+## Architecture
+
+<details>
+<summary>Click to expand directory tree</summary>
+
+```
+pantheon-skill/
+├── SKILL.md                        # Main orchestrator
+├── engine/                         # Family System Engines (unique to Pantheon)
+│   ├── family_graph.py             #   Family tree graph
+│   ├── generational_dna.py         #   Cross-generation pattern extraction
+│   ├── era_engine.py               #   Era-specific language calibration
+│   ├── memory_inheritance.py       #   Memory propagation
+│   ├── ritual_engine.py            #   Family traditions
+│   └── legacy_writer.py            #   Auto memoir generator
+├── prompts/                        # Soul reconstruction + family prompts
+│   ├── intake.md                   #   Guided info collection
+│   ├── memory_analyzer.md          #   Memory extraction (7 dimensions)
+│   ├── soul_analyzer.md            #   Soul extraction (6 dimensions + tag table)
+│   ├── memory_builder.md           #   Memory archive generation
+│   ├── soul_builder.md             #   5-layer soul model generation
+│   ├── merger.md                   #   Incremental merging + conflict detection
+│   ├── correction_handler.md       #   Dialogue-based corrections
+│   ├── family_council.md           #   Structured family decision simulation
+│   ├── generational_dna_extractor.md
+│   ├── temporal_mode.md            #   Time travel conversations
+│   └── legacy_writer_prompt.md     #   Memoir writing guide
+├── tools/                          # Data parsers & utilities
+│   ├── wechat_parser.py            #   WeChat history parser
+│   ├── sms_parser.py               #   SMS / iMessage parser
+│   ├── photo_analyzer.py           #   Photo EXIF metadata
+│   ├── social_parser.py            #   Social media parser
+│   ├── skill_writer.py             #   Soul archive file manager
+│   ├── version_manager.py          #   Versioning + rollback
+│   └── demo_loader.py              #   /pantheon-demo backend
+├── examples/                       # Try-it-without-data examples
+│   └── wang_family/                #   Fictional three-generation Chinese family
+│       ├── README.md
+│       ├── souls/
+│       │   ├── grandpa_wanglaoxiansheng/  #   王老先生 (1932-2015)
+│       │   ├── grandma_zhangxiuying/      #   张秀英 (1935-2020)
+│       │   └── father_wangjianguo/        #   王建国 (1958-2023)
+│       └── family/
+│           ├── tree.json
+│           ├── generational_dna.md
+│           └── rituals/
+├── family/                         # Family-level intelligence (active install)
+│   ├── tree.json
+│   ├── generational_dna.md
+│   ├── rituals/
+│   └── legacy/
+├── references/
+│   ├── soul-framework.md           #   Soul reconstruction methodology
+│   └── soul-template.md            #   Runtime template
+├── tests/                          # pytest suite
+├── docs/
+│   ├── assets/                     #   Hero video + poster
+│   └── launch/                     #   Launch essays
+├── ETHICS.md
+├── INSTALL.md
+├── SECURITY.md
+└── CHANGELOG.md
+```
+
+</details>
 
 ---
 
 ## Contributing
 
-Contributions are welcome. But please understand the nature of this project:
+Contributions are welcome. Please understand the nature of this project before opening a PR:
 
-- **Accuracy > feature count**
-- All PRs must pass ethical review
-- No growth-hacking changes
-- No features that commercialize soul archives
+- **Accuracy > feature count.**
+- All PRs must pass an ethical review (see [`ETHICS.md`](ETHICS.md)).
+- No growth-hacking changes.
+- No features that commercialize soul archives.
 
-If you have also lost someone close -- you are welcome here.
+See [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) for the full guide.
+
+If you have lost someone close — you are welcome here.
 
 ---
 
-## Project Stats
+## License
 
-**36 files** | **11,490 lines of code** | **12 Python modules** (6 parsers + 6 engines)
+[MIT](LICENSE). Use it, fork it, build on it. Don't sell people their own dead.
 
 ---
 
