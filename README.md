@@ -152,6 +152,39 @@ Grandma:  我看不到? 我外孙什么样我心里没数?
 
 Dad instinctively shields you from Grandma's fussing while simultaneously agreeing with her. Grandma overrides Dad's logic with emotional authority. **These dynamics come from the relationship model, not a script** — `family/tree.json` encodes the edges; the `family_graph` engine wires them at runtime.
 
+### The Wang family graph
+
+This is what `family/tree.json` looks like once rendered — not just *who* is related, but *how*.
+
+```mermaid
+graph TD
+    G("爷爷 · 王老先生<br/>钳工 · 1932 – 2015")
+    Gma("奶奶 · 张秀英<br/>纺织厂三班倒 · 1935 – 2020")
+    Uncle("二叔 · 王建民<br/>下岗 1996 · 1962 – 2021")
+    Dad("老爸 · 王建国<br/>物理老师 · 1958 – 2023")
+    Mom("妈妈 · 李淑芬<br/>still living")
+    You(["你 · You"])
+
+    G ---|"60 years"| Gma
+    G -->|"silent investment<br/>《十万个为什么》"| Dad
+    G -->|"taught the trade"| Uncle
+    Gma -->|"red-braised pork<br/>inheritance"| Dad
+    Gma -->|"sent food<br/>every month"| Uncle
+    Dad ---|"quiet partnership"| Mom
+    Dad -->|"strict but protective"| You
+    Mom -->|"tender, talkative"| You
+    Dad -.->|"calls every<br/>Sunday for 32 yrs"| Gma
+    Dad -.->|"hidden support<br/>1996–2014"| Uncle
+
+    style G stroke-dasharray: 5 3
+    style Gma stroke-dasharray: 5 3
+    style Uncle stroke-dasharray: 5 3
+    style Dad stroke-dasharray: 5 3
+    style You stroke-width:3px
+```
+
+> Dashed borders mark souls who have passed. Solid edges are direct family relationships; dotted edges are the *additional dynamics* — the things that happen between people that aren't on any birth certificate.
+
 ---
 
 ## Not another clone tool
@@ -190,6 +223,33 @@ A family is not a collection of individuals. It is a living system of relationsh
 
 What makes Pantheon structurally different is the `engine/` directory — six Python modules no single-person tool needs or has.
 
+```mermaid
+flowchart LR
+    S[("Soul Archives<br/>memory · soul · meta")]
+    FG["family_graph<br/><sub>relationships</sub>"]
+    DNA["generational_dna<br/><sub>cross-gen patterns</sub>"]
+    ERA["era_engine<br/><sub>time calibration</sub>"]
+    MI["memory_inheritance<br/><sub>retelling drift</sub>"]
+    RIT["ritual_engine<br/><sub>recipes & customs</sub>"]
+    LW["legacy_writer<br/><sub>auto-memoir</sub>"]
+    M[("《王家三代》<br/>family memoir")]
+
+    S --> FG
+    S --> MI
+    S --> RIT
+    FG --> DNA
+    FG --> ERA
+    FG --> LW
+    DNA --> LW
+    ERA --> LW
+    MI --> LW
+    RIT --> LW
+    LW --> M
+
+    style S fill:#3d2f24,color:#fff,stroke:#c9a87c,stroke-width:2px
+    style M fill:#c87a44,color:#fff,stroke:#a86,stroke-width:3px
+```
+
 ### 1. Family Graph (`family_graph.py`)
 
 Maps every relationship in the family as a directed graph. Not just *who* is related, but *how* — emotional valence, power dynamics, communication patterns.
@@ -215,13 +275,30 @@ When you talk to one soul, the graph informs how they speak about other family m
 Traces behavioral patterns across generations. Not biology — psychological inheritance.
 
 ```
-Trait: Stubbornness (倔)
-├── Grandpa:  Refused to leave the village. "This land is mine."
-├── Dad:      Refused to give up teaching. "Students need me."
-└── You:      Refused to take the safe job. "I need to build something."
-
-Same root. Three expressions.
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     TRAIT INHERITED:  STUBBORNNESS (倔)                       ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   1932 ┐ 爷爷 · 王老先生           "This land is mine."                       ║
+║        │   1955, age 23           refused to leave the village                ║
+║        │                                                                     ║
+║        ▼ inherited as ↓                                                      ║
+║                                                                              ║
+║   1958 ┐ 老爸 · 王建国             "Students need me."                        ║
+║        │   2003, age 45           refused the principal job — kept teaching   ║
+║        │                                                                     ║
+║        ▼ inherited as ↓                                                      ║
+║                                                                              ║
+║   1989 ┐ 你 · You                  "I need to build this."                    ║
+║        │   2024, age 35           refused the corporate offer, kept building  ║
+║        │                                                                     ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║          Same root. Three expressions. Three generations saying no.          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
 ```
+
+The engine extracts these patterns by clustering catchphrases, behavioral rules, and value-judgments across all souls in `family/tree.json`. The Wang family's *"差不多就行了"* — *"good enough"* — appears across three generations of `soul.md` files with three different meanings (爷爷 = "resources are limited"; 老爸 = "I've done what I can"; you = "perfectionism is its own pathology"). Same words, three minds, traced.
 
 ### 3. Era Engine (`era_engine.py`)
 
@@ -293,6 +370,21 @@ Not a template. Generated from your data.
 ## Core technology: the 5-layer soul model
 
 Each digital soul is built from a 5-layer priority structure (inspired by [ex-skill](https://github.com/perkfly/ex-skill)):
+
+```mermaid
+graph TD
+    L5["<b>Layer 5</b> · Corrections<br/><sub>User feedback — OVERRIDES ALL</sub>"]
+    L4["Layer 4 · Relationship Dynamics<br/><sub>Spouse vs children vs siblings vs you</sub>"]
+    L3["Layer 3 · Emotional Logic<br/><sub>How they show love · anger · pride</sub>"]
+    L2["Layer 2 · Expression Style<br/><sub>Catchphrases, punctuation, emoji habits</sub>"]
+    L1["Layer 1 · Identity<br/><sub>Era, profession, family role</sub>"]
+    L0["<b>Layer 0</b> · Core Behavioral Rules<br/><sub>NEVER VIOLATED</sub>"]
+
+    L5 ==> L4 ==> L3 ==> L2 ==> L1 ==> L0
+
+    style L5 fill:#c87a44,color:#fff,stroke:#a86,stroke-width:3px
+    style L0 fill:#1c1c33,color:#fff,stroke:#fc7,stroke-width:3px
+```
 
 | Layer | Content | Priority |
 |-------|---------|----------|
@@ -500,6 +592,18 @@ Contributions are welcome. Please understand the nature of this project before o
 See [`CONTRIBUTING.md`](.github/CONTRIBUTING.md) for the full guide.
 
 If you have lost someone close — you are welcome here.
+
+---
+
+## Star history
+
+<a href="https://www.star-history.com/#KeWang0622/pantheon-skill&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date" />
+   <img alt="Star history of KeWang0622/pantheon-skill" src="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date" width="720" />
+ </picture>
+</a>
 
 ---
 

@@ -157,9 +157,71 @@ pantheon-skill/
 
 ---
 
+## 王家家族图谱 · Family graph
+
+`family/tree.json` 渲染出来不只是一棵树 — 是关系本身。
+
+```mermaid
+graph TD
+    G("爷爷 · 王老先生<br/>钳工 · 1932 – 2015")
+    Gma("奶奶 · 张秀英<br/>纺织厂三班倒 · 1935 – 2020")
+    Uncle("二叔 · 王建民<br/>下岗 1996 · 1962 – 2021")
+    Dad("老爸 · 王建国<br/>物理老师 · 1958 – 2023")
+    Mom("妈妈 · 李淑芬<br/>still living")
+    You(["你 · You"])
+
+    G ---|"60 年"| Gma
+    G -->|"省下三个月工资<br/>买《十万个为什么》"| Dad
+    G -->|"教会钳工"| Uncle
+    Gma -->|"红烧肉传承"| Dad
+    Gma -->|"每月寄菜"| Uncle
+    Dad ---|"沉默的伴侣"| Mom
+    Dad -->|"严父但护短"| You
+    Mom -->|"温柔多话"| You
+    Dad -.->|"32年每周日<br/>都给奶奶打电话"| Gma
+    Dad -.->|"1996–2014 暗中接济"| Uncle
+
+    style G stroke-dasharray: 5 3
+    style Gma stroke-dasharray: 5 3
+    style Uncle stroke-dasharray: 5 3
+    style Dad stroke-dasharray: 5 3
+    style You stroke-width:3px
+```
+
+> 虚线边框：已逝的灵魂。实线：直接亲属关系。点状箭头：那些不在户口本上、但真实存在的"额外动态"——一个人和另一个人之间真正发生的事。
+
+---
+
 ## The Six Engines
 
 What makes Pantheon structurally different is the `engine/` directory -- six Python modules that no single-person reconstruction tool needs or has.
+
+```mermaid
+flowchart LR
+    S[("Soul Archives<br/>memory · soul · meta")]
+    FG["family_graph<br/><sub>关系</sub>"]
+    DNA["generational_dna<br/><sub>跨代模式</sub>"]
+    ERA["era_engine<br/><sub>时代校准</sub>"]
+    MI["memory_inheritance<br/><sub>记忆漂移</sub>"]
+    RIT["ritual_engine<br/><sub>家传菜谱 / 习俗</sub>"]
+    LW["legacy_writer<br/><sub>自动生成家族传记</sub>"]
+    M[("《王家三代》<br/>family memoir")]
+
+    S --> FG
+    S --> MI
+    S --> RIT
+    FG --> DNA
+    FG --> ERA
+    FG --> LW
+    DNA --> LW
+    ERA --> LW
+    MI --> LW
+    RIT --> LW
+    LW --> M
+
+    style S fill:#3d2f24,color:#fff,stroke:#c9a87c,stroke-width:2px
+    style M fill:#c87a44,color:#fff,stroke:#a86,stroke-width:3px
+```
 
 ### 1. Family Graph (`family_graph.py`)
 
@@ -186,13 +248,30 @@ When you talk to one soul, the graph informs how they speak about other family m
 Traces behavioral patterns across generations. Not biological DNA -- psychological inheritance. The traits that pass from parent to child, sometimes transforming, sometimes inverting.
 
 ```
-Trait: Stubbornness (倔)
-├── 爷爷: Refused to leave the village. "This land is mine."
-├── 爸爸: Refused to give up teaching. "Students need me."
-└── 你:   Refused to take the safe job. "I need to build something."
-
-Same root. Three expressions. Each generation's version of not backing down.
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          代际传承 ·  倔  (Stubbornness)                       ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   1932 ┐ 爷爷 · 王老先生           "这块地是我的。"                            ║
+║        │   1955, 23岁              拒绝离开村子                                ║
+║        │                                                                     ║
+║        ▼ inherited as ↓                                                      ║
+║                                                                              ║
+║   1958 ┐ 老爸 · 王建国             "学生需要我。"                              ║
+║        │   2003, 45岁              拒绝校长职位 — 留在讲台                      ║
+║        │                                                                     ║
+║        ▼ inherited as ↓                                                      ║
+║                                                                              ║
+║   1989 ┐ 你 · You                  "我得把这个做出来。"                        ║
+║        │   2024, 35岁              拒绝大厂 offer — 一个人开干                  ║
+║        │                                                                     ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║          同一个根。三种表达。三代人在不同的时代里说同一个"不"。               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
 ```
+
+引擎从全家 souls 中聚类口头禅、行为规则和价值判断。王家最经典的例子是"差不多就行了"——同一句话出现在三代人 `soul.md` 里，但三种意思：爷爷 = "资源有限"；老爸 = "我尽力了"；你 = "完美主义本身就是病"。
 
 ### 3. Era Engine (`era_engine.py`)
 
@@ -364,6 +443,21 @@ Notice how the family graph shapes the interaction: Dad mediates between you and
 
 Each digital soul is built from a 5-layer priority structure (inspired by ex-skill's personality modeling):
 
+```mermaid
+graph TD
+    L5["<b>Layer 5</b> · 修正层<br/><sub>User feedback — 覆盖一切</sub>"]
+    L4["Layer 4 · 关系动态<br/><sub>对配偶 / 子女 / 兄弟 / 你 都不一样</sub>"]
+    L3["Layer 3 · 情感逻辑<br/><sub>怎么表达爱 · 怎么表达愤怒 · 怎么表达骄傲</sub>"]
+    L2["Layer 2 · 表达风格<br/><sub>口头禅 · 标点 · emoji 习惯</sub>"]
+    L1["Layer 1 · 身份<br/><sub>时代 · 职业 · 家庭角色</sub>"]
+    L0["<b>Layer 0</b> · 核心行为规则<br/><sub>永不违反</sub>"]
+
+    L5 ==> L4 ==> L3 ==> L2 ==> L1 ==> L0
+
+    style L5 fill:#c87a44,color:#fff,stroke:#a86,stroke-width:3px
+    style L0 fill:#1c1c33,color:#fff,stroke:#fc7,stroke-width:3px
+```
+
 | Layer | Content | Priority |
 |-------|---------|----------|
 | **Layer 0** | Core behavioral rules (from tag translation) | Highest -- never violated |
@@ -511,6 +605,18 @@ If you have also lost someone close -- you are welcome here.
 ## Project Stats
 
 **36 files** | **11,490 lines of code** | **12 Python modules** (6 parsers + 6 engines)
+
+---
+
+## Star history
+
+<a href="https://www.star-history.com/#KeWang0622/pantheon-skill&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date" />
+   <img alt="Star history of KeWang0622/pantheon-skill" src="https://api.star-history.com/svg?repos=KeWang0622/pantheon-skill&type=Date" width="720" />
+ </picture>
+</a>
 
 ---
 
