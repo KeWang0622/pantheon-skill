@@ -35,7 +35,7 @@ The third time, the last person who remembers them forgets.
 </p>
 
 <p align="center">
-  <sub><em>Click for the 35-second cinematic with audio. Headphones recommended.</em> — Built with <a href="https://pika.art">Pika</a>.</sub>
+  <sub><em>The full 35-second cinematic plays inline (silent). Click for the version with audio + captions. Headphones recommended.</em> — Built with <a href="https://pika.art">Pika</a>.</sub>
 </p>
 
 ---
