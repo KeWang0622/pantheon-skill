@@ -65,6 +65,84 @@ The Wang family is documented in [`examples/wang_family/README.md`](examples/wan
 
 ---
 
+## When you'd actually use this
+
+Pantheon is built for people whose family is the most important system in their life — whether that family is gathered, scattered, aging, or already gone. Real situations real users walk in with:
+
+### 🧭 You're facing a hard life decision and you wish you could ask your whole family
+> *"Should I take the job in Toronto and move away from my parents, or stay close?"*
+
+```bash
+/pantheon-council father_wangjianguo grandma_zhangxiuying mother_lishufen
+```
+
+Dad weighs the practical (salary, growth, *"做事跟解方程一样，一步步来"* — *"do things one step at a time, like solving an equation"*). Grandma weighs the emotional (*"who will make sure you eat?"*). Mom mediates. You get the **full spectrum** of how your family system would weigh this — not consensus, but every voice. You decide.
+
+### 📞 Your parents are aging and you suddenly realize you don't really know them
+> *"My mom is 78. She's still here, but she's started repeating stories — and I just realized I don't actually know how she met my father."*
+
+```bash
+/pantheon-create mother
+```
+
+Pantheon walks you through structured interviews — easier than free-form recording, because the questions are designed to surface the specific layer of memory you'd otherwise lose first. The archive grows with you. When the day comes — and it will — what you need is already there.
+
+### 🔁 You catch yourself doing the exact thing your parent did
+> *"I went silent in the middle of an argument with my partner. Just like Dad did with Mom. I swore I wouldn't be that guy."*
+
+```bash
+/pantheon-dna
+```
+
+The Generational DNA engine traces the pattern back: *"This isn't yours alone. The root is Grandpa. It transformed through Dad. It's expressing differently in you, but the shape is the same."* You can't change what you can't name. This is therapy-adjacent self-awareness work — pre-therapy or alongside it.
+
+### 💌 You want a letter from someone who's gone, for a moment they should have been at
+> *"Dad died eight months before my wedding. I want him there in some form. Not a clone of him — a letter, in his voice, that he could have written."*
+
+```bash
+/pantheon-letter father_wangjianguo --occasion "son's wedding"
+```
+
+The letter is generated from his actual soul archive — his catchphrases, his sentence rhythm, his way of expressing pride without ever saying *"I'm proud of you."* Pantheon refuses to invent feelings Dad never expressed, but it will surface the artifacts he left behind: *"Read what's in his desk drawer. The pencil notebook. He logged every paper you ever wrote."*
+
+### 🕰️ You want to meet the version of your grandparent who existed before you did
+> *"I knew Grandma as the woman who fed me. I never knew her as the 23-year-old textile worker who hid books under the floorboards during the Cultural Revolution."*
+
+```bash
+/pantheon-era grandma_zhangxiuying 1958
+```
+
+The Era Engine recalibrates her language, references, and worldview to the year you pick. Same soul model. Earlier life. The person who existed before you were a person. This is the most popular `/pantheon-era` use — meeting your young grandparents on their own terms.
+
+### 🍳 You want to preserve a recipe that exists only in someone's hands
+> *"Grandma made the red-braised pork every Spring Festival for forty-five years. She's gone. Mom tried to recreate it. It's close. Something's missing."*
+
+```bash
+/pantheon-ritual --add grandma_hongshaorou
+```
+
+The Ritual Engine captures the recipe **and the story around it** — who taught whom, what mattered, why Grandpa always said it was too sweet but ate three bowls anyway, why Mom's version is good but not quite right. The recipe is the surface artifact. The meaning is the system.
+
+### 📖 You want to give your kids access to the great-grandparents they'll never meet
+> *"My son was born after Dad died. I want him to know who his grandfather was — beyond the photographs."*
+
+```bash
+/pantheon-legacy father_wangjianguo --audience children
+```
+
+Legacy Writer generates an age-appropriate chapter — the stories your son can read in twenty years, told the way Dad would have told them. Not a sanitized PR version. The actual man, framed for a kid.
+
+### 🫀 You want to process the conversation you never got to have
+> *"I never apologized. I never asked why. I never got to say I love you the way I meant it."*
+
+```bash
+/pantheon-talk father_wangjianguo
+```
+
+This is not therapy. Pantheon is honest about that and shows the crisis-line resources at the top of every dialog. But sometimes hearing what your father — reconstructed from his actual recorded words — *might* have said, in his actual voice, is enough to begin. The honesty boundaries (see below) mean the reconstruction won't lie to you about forgiveness, or fabricate a feeling he never expressed. What it *can* do is point you back to the things he left behind, so you can hear them in the right voice.
+
+---
+
 ## What it actually does
 
 ```
@@ -138,17 +216,41 @@ You: /pantheon-family father_wangjianguo grandma_zhangxiuying
 
 📝 Family group chat. Each soul speaks from their own archive.
 
-Grandma:  哎呀小明 这么久没回来看奶奶了 是不是又忙
+Grandma:  Aiya Xiao Ming, haven't come to see Grandma in so long.
+          Busy again, aren't you?
 
-Dad:      妈 他工作忙 年轻人有年轻人的事
+Dad:      Mom, he's busy with work. Young people have their own things.
 
-Grandma:  忙什么忙 再忙也得吃饭 你看你都瘦了
+Grandma:  Busy busy busy. Too busy to eat? Look how thin you've gotten.
 
-Dad:      妈 这是网上聊天 你怎么看得到他瘦没瘦
+Dad:      Mom — this is online chat. How can you tell if he's thin?
 
-Grandma:  我看不到? 我外孙什么样我心里没数?
-          上次过年回来就瘦了 跟你一样 吃饭不好好吃
+Grandma:  Can't tell? You think I don't know what my own grandson
+          looks like? He came home thin at New Year. Just like you —
+          never eats properly.
 ```
+
+<details>
+<summary><em>原文（中文）— Original Chinese</em></summary>
+
+```
+你：/pantheon-family father_wangjianguo grandma_zhangxiuying
+
+📝 家族群聊模式。基于各自灵魂档案重建。
+
+奶奶：哎呀小明 这么久没回来看奶奶了 是不是又忙
+
+老爸：妈 他工作忙 年轻人有年轻人的事
+
+奶奶：忙什么忙 再忙也得吃饭 你看你都瘦了
+
+老爸：妈 这是网上聊天 你怎么看得到他瘦没瘦
+
+奶奶：我看不到？我外孙什么样我心里没数？
+      上次过年回来就瘦了 跟你一样 吃饭不好好吃
+```
+
+</details>
 
 Dad instinctively shields you from Grandma's fussing while simultaneously agreeing with her. Grandma overrides Dad's logic with emotional authority. **These dynamics come from the relationship model, not a script** — `family/tree.json` encodes the edges; the `family_graph` engine wires them at runtime.
 
@@ -158,23 +260,23 @@ This is what `family/tree.json` looks like once rendered — not just *who* is r
 
 ```mermaid
 graph TD
-    G("爷爷 · 王老先生<br/>钳工 · 1932 – 2015")
-    Gma("奶奶 · 张秀英<br/>纺织厂三班倒 · 1935 – 2020")
-    Uncle("二叔 · 王建民<br/>下岗 1996 · 1962 – 2021")
-    Dad("老爸 · 王建国<br/>物理老师 · 1958 – 2023")
-    Mom("妈妈 · 李淑芬<br/>still living")
-    You(["你 · You"])
+    G("<b>Grandpa</b> · Wang the Elder<br/>Factory bench-fitter · 1932 – 2015")
+    Gma("<b>Grandma</b> · Zhang Xiuying<br/>Three-shift textile worker · 1935 – 2020")
+    Uncle("<b>Uncle</b> · Wang Jianmin<br/>Laid off 1996 · 1962 – 2021")
+    Dad("<b>Dad</b> · Wang Jianguo<br/>Middle-school physics teacher · 1958 – 2023")
+    Mom("<b>Mom</b> · Li Shufen<br/>still living")
+    You(["<b>You</b>"])
 
-    G ---|"60 years"| Gma
-    G -->|"silent investment<br/>《十万个为什么》"| Dad
+    G ---|"60 years married"| Gma
+    G -->|"saved 3 months wages<br/>for a science encyclopedia"| Dad
     G -->|"taught the trade"| Uncle
-    Gma -->|"red-braised pork<br/>inheritance"| Dad
-    Gma -->|"sent food<br/>every month"| Uncle
+    Gma -->|"red-braised pork<br/>recipe inheritance"| Dad
+    Gma -->|"sent food monthly"| Uncle
     Dad ---|"quiet partnership"| Mom
     Dad -->|"strict but protective"| You
     Mom -->|"tender, talkative"| You
-    Dad -.->|"calls every<br/>Sunday for 32 yrs"| Gma
-    Dad -.->|"hidden support<br/>1996–2014"| Uncle
+    Dad -.->|"called every Sunday<br/>for 32 years"| Gma
+    Dad -.->|"hidden financial support<br/>1996 – 2014"| Uncle
 
     style G stroke-dasharray: 5 3
     style Gma stroke-dasharray: 5 3
@@ -183,7 +285,7 @@ graph TD
     style You stroke-width:3px
 ```
 
-> Dashed borders mark souls who have passed. Solid edges are direct family relationships; dotted edges are the *additional dynamics* — the things that happen between people that aren't on any birth certificate.
+> **How to read this.** Dashed borders mark souls who have passed. Solid edges are direct family relationships (parent–child, spouse). Dotted edges are the *additional dynamics* — the things that happen between people that aren't on any birth certificate: how often Dad called Grandma, whether he secretly supported Uncle for two decades, why a bench-fitter who never finished elementary school saved three months of his salary to buy his son an encyclopedia in 1968.
 
 ---
 
@@ -304,13 +406,13 @@ The engine extracts these patterns by clustering catchphrases, behavioral rules,
 
 A person is inseparable from their era. The Era Engine calibrates language, references, values, and worldview to the decade a person lived through.
 
-| Generation | Sample speech | Worldview anchor |
-|------------|---------------|------------------|
-| **50s-born** | "当年我们吃不饱饭，你们现在多幸福" | Scarcity defines value |
-| **60s-born** | "单位分的房子，虽然小但知足了" | Stability is everything |
-| **80s-born** | "我觉得你应该follow your heart" | Individual choice matters |
+| Generation | How they actually talk | Worldview anchor |
+|------------|------------------------|------------------|
+| **Born 1950s** | *"Back when we couldn't get enough to eat, you have it so good now."*<br/><sub>当年我们吃不饱饭，你们现在多幸福</sub> | Scarcity defines value |
+| **Born 1960s** | *"The work unit gave us a small apartment, but we were content."*<br/><sub>单位分的房子，虽然小但知足了</sub> | Stability is everything |
+| **Born 1980s** | *"I think you should follow your heart."*<br/><sub>我觉得你应该 follow your heart</sub> | Individual choice matters |
 
-The same father at age 25 (1983) speaks differently than at age 55 (2013). `/pantheon-era` lets you talk to any family member at any age.
+The same father at age 25 (1983) speaks differently than at age 55 (2013). `/pantheon-era father_wangjianguo 1983` lets you talk to any family member at any age — younger Dad uses more idealism vocabulary, hasn't yet developed the *"do things one step at a time, like solving equations"* metaphor that he leans on by age 55.
 
 ### 4. Memory Inheritance (`memory_inheritance.py`)
 
@@ -335,15 +437,18 @@ Details shift. Emotional weight changes. Core survives.
 Every family has rituals — the dishes only one person could make, the order of Spring Festival, the customs no one writes down. These are the connective tissue of family identity.
 
 ```yaml
-Ritual: 外婆的红烧肉
-  recipe:       "Pork belly cubes. Rock sugar caramelized. Star anise..."
-  context:      "Every Spring Festival since 1975"
+Ritual: Grandma's red-braised pork (奶奶的红烧肉)
+  recipe:       "Pork belly cubes (五花肉). Rock sugar caramelized.
+                Star anise. Simmered four hours."
+  context:      "Every Spring Festival dinner since 1975."
   participants:
-    - 外婆 (cook)
-    - 外公 (taste-tester)
-    - 妈妈 (helper from age 12)
-  stories:      "外公 always said it was too sweet. Ate three bowls anyway."
-  status:       "妈妈 learned it. Yours is close but too much soy sauce."
+    - Grandma (奶奶)       — the cook, learned by watching the factory canteen chef
+    - Grandpa (爷爷)       — the taste-tester, ate three bowls without comment
+    - Dad (老爸)           — helper from age 12, kept the fire going
+  stories:      "Grandpa always said it was too sweet. Ate three bowls anyway.
+                After Grandma passed, Dad tried to recreate it. Configurations matched.
+                Taste was off. He said it must be the pan. Everyone knew it wasn't."
+  status:       "Dad learned the recipe. Yours is close but uses too much soy sauce."
 ```
 
 ### 6. Legacy Writer (`legacy_writer.py`)
@@ -351,16 +456,25 @@ Ritual: 外婆的红烧肉
 Synthesizes everything — souls, memories, relationships, traditions, era — into a structured family memoir.
 
 ```
-《王家三代》  — auto-generated table of contents
+《王家三代》 ·  Three Generations of the Wang Family
+                                                  — auto-generated table of contents
 
-Chapter 1:  黄土地上的少年                       (Grandpa, 1940-1960)
-Chapter 2:  走出去                              (Grandpa's gaokao, 1979)
-Chapter 3:  教书匠                              (Dad's 38 years, 1985-2023)
-Chapter 4:  严父的台灯                          (Dad and son)
-Chapter 5:  外婆的红烧肉                         (the family New Year's dinner)
-Chapter 6:  三代人的倔                          (generational DNA)
-Chapter 7:  "单位还行吧"                        (Dad's love language)
-Epilogue:   来不及说的话
+  Chapter 1:  The Boy on the Yellow Earth     (Grandpa, his childhood, 1940 – 1960)
+              黄土地上的少年
+  Chapter 2:  Going Out                       (Grandpa's gaokao year, 1979)
+              走出去
+  Chapter 3:  The Schoolteacher               (Dad's 38 years at the same school)
+              教书匠                                  1985 – 2023
+  Chapter 4:  The Strict Father's Desk Lamp   (the green-shaded lamp Dad graded
+              严父的台灯                              homework under for 28 years)
+  Chapter 5:  Grandma's Red-Braised Pork      (the family New Year's dinner)
+              奶奶的红烧肉
+  Chapter 6:  Three Generations of Stubborn   (generational DNA, the inherited 倔)
+              三代人的倔
+  Chapter 7:  "The Work Unit Is Okay"         (Dad's love language — he asked
+              "单位还行吧"                            this every Sunday for 32 years)
+  Epilogue:   Words We Ran Out of Time to Say
+              来不及说的话
 ```
 
 Not a template. Generated from your data.
