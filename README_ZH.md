@@ -29,7 +29,7 @@
 
 <p align="center">
   <a href="https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4">
-    <img src="docs/assets/pantheon-hero-v2.gif" alt="万神殿 · 给第三次死亡" width="720">
+    <img src="docs/assets/pantheon-hero.webp" alt="万神殿 · 给第三次死亡" width="720">
   </a>
 </p>
 

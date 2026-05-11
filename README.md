@@ -30,7 +30,7 @@ The third time, the last person who remembers them forgets.
 
 <p align="center">
   <a href="https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4">
-    <img src="docs/assets/pantheon-hero-v2.gif" alt="Pantheon — for the third death" width="720">
+    <img src="docs/assets/pantheon-hero.webp" alt="Pantheon — for the third death" width="720">
   </a>
 </p>
 
