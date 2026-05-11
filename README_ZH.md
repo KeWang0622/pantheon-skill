@@ -34,7 +34,7 @@
 </p>
 
 <p align="center">
-  <sub><em>完整 35 秒静音 GIF 直接播放，点击查看带音轨和字幕的版本，建议戴耳机。</em> — 用 <a href="https://pika.art">Pika</a> 制作。</sub>
+  <sub><em>完整 35 秒静音 720p 直接播放，点击查看带音轨和字幕的版本，建议戴耳机。</em> — 用 <a href="https://pika.art">Pika</a> 制作。</sub>
 </p>
 
 ---
