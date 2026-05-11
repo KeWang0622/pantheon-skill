@@ -27,7 +27,15 @@
 
 </div>
 
-https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4
+<p align="center">
+  <a href="https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4">
+    <img src="docs/assets/pantheon-hero.gif" alt="万神殿 · 给第三次死亡" width="720">
+  </a>
+</p>
+
+<p align="center">
+  <sub><em>点击查看完整 35 秒带音视频，建议戴耳机。</em>  — 用 <a href="https://pika.art">Pika</a> 制作。</sub>
+</p>
 
 ---
 

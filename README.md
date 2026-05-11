@@ -28,9 +28,15 @@ The third time, the last person who remembers them forgets.
 
 </div>
 
-https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4
+<p align="center">
+  <a href="https://github.com/KeWang0622/pantheon-skill/raw/main/docs/assets/pantheon-hero.mp4">
+    <img src="docs/assets/pantheon-hero.gif" alt="Pantheon — for the third death" width="720">
+  </a>
+</p>
 
-> *A 35-second look. Headphones recommended.* — Built with [Pika](https://pika.art).
+<p align="center">
+  <sub><em>Click for the 35-second cinematic with audio. Headphones recommended.</em> — Built with <a href="https://pika.art">Pika</a>.</sub>
+</p>
 
 ---
 
