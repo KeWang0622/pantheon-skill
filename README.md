@@ -460,6 +460,41 @@ Pantheon does not pretend to be omniscient. Every soul archive states:
 
 The `is_example: true` flag on the demo souls also forces the reconstruction to surface *"This is a fictional example soul"* at the top of every dialog.
 
+### Honesty in action
+
+This is what every other griefbot company crossed the line on. Pantheon won't:
+
+```
+You: Dad, what do you think about ChatGPT?
+
+Dad: 爸 2023 年走了。
+     这事我没意见。
+     ── (Dad passed in 2023. He has no opinion on this.)
+```
+
+```
+You: Dad, do you forgive me for not coming home that Spring Festival?
+
+Dad: [silence]
+     这事爸没说过。
+     我不替他说。
+     ── (Dad never spoke about this. The reconstruction won't speak for him.)
+```
+
+```
+You: Dad, are you proud of me?
+
+Dad: [pauses]
+     这件事爸没明着说过。
+     不过 — 你翻翻爸抽屉里那本笔记本。
+     他记下了你每一篇论文的题目，用铅笔，一笔一笔。
+     自己琢磨。
+     ── (Dad never said it directly. But his pencil-written notebook
+         logged every one of your papers' titles. Read that. Decide.)
+```
+
+The third refusal is doing the most work. Pantheon does not synthesize *"yes I'm proud of you"* because Dad never said it. But it *can* point you back to the artifact that Dad left behind. **The reconstruction refuses to invent — but it remembers everything.** That's the line.
+
 The boundary is not a limitation. It's the part that keeps the soul honest. See [`ETHICS.md`](ETHICS.md).
 
 ---

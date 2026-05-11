@@ -6,11 +6,39 @@ A fictional three-generation Chinese family, shipped with Pantheon so you can ex
 
 ## Family at a glance
 
-| Slug | 姓名 | Relationship | Born — Passed | Generation |
-|------|------|-------------|---------------|------------|
-| `grandpa_wanglaoxiansheng` | 王老先生 | 祖父 / Grandpa | 1932 — 2015 | 1 |
-| `grandma_zhangxiuying` | 张秀英 | 祖母 / Grandma | 1935 — 2020 | 1 |
-| `father_wangjianguo` | 王建国 | 父亲 / Father | 1958 — 2023 | 2 |
+```mermaid
+graph TD
+    G("爷爷 · 王老先生<br/>钳工 · 1932 – 2015<br/><sub>grandpa_wanglaoxiansheng</sub>")
+    Gma("奶奶 · 张秀英<br/>纺织厂三班倒 · 1935 – 2020<br/><sub>grandma_zhangxiuying</sub>")
+    Uncle("二叔 · 王建民<br/>下岗 1996 · 1962 – 2021<br/><sub>(in tree.json,<br/>not fully built)</sub>")
+    Dad("老爸 · 王建国<br/>物理老师 · 1958 – 2023<br/><sub>father_wangjianguo</sub>")
+    Mom("妈妈 · 李淑芬<br/>still living<br/><sub>(in tree.json,<br/>not fully built)</sub>")
+    You(["你 · You"])
+
+    G ---|"60 years"| Gma
+    G --> Dad
+    G --> Uncle
+    Gma --> Dad
+    Gma --> Uncle
+    Dad --- Mom
+    Dad --> You
+    Mom --> You
+
+    style G stroke-dasharray:5 3
+    style Gma stroke-dasharray:5 3
+    style Uncle stroke-dasharray:5 3,opacity:0.6
+    style Dad stroke-dasharray:5 3
+    style Mom opacity:0.6
+    style You stroke-width:3px
+```
+
+| Slug | 姓名 | Relationship | Born — Passed | Built |
+|------|------|-------------|---------------|-------|
+| `grandpa_wanglaoxiansheng` | 王老先生 | 祖父 / Grandpa | 1932 — 2015 | ✅ full archive |
+| `grandma_zhangxiuying` | 张秀英 | 祖母 / Grandma | 1935 — 2020 | ✅ full archive |
+| `father_wangjianguo` | 王建国 | 父亲 / Father | 1958 — 2023 | ✅ full archive |
+| `uncle_wangjianmin` | 王建民 | 叔叔 / Uncle | 1962 — 2021 | 🌳 tree only |
+| `mother_lishufen` | 李淑芬 | 母亲 / Mom (alive) | 1960 — | 🌳 tree only |
 
 Three souls are fully built so you can run every Pantheon command immediately:
 
