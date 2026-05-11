@@ -15,7 +15,10 @@ Thumbs.db
 
 # User data (never commit personal soul archives)
 .pantheon/
-souls/
+# Root-level souls/ is reserved for the active install and stays untracked.
+# Example soul archives live under examples/<family>/souls/ and ARE committed,
+# so we anchor the rule to the repo root only.
+/souls/
 *.chat.txt
 *.chat.log
 

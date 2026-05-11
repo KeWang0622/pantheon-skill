@@ -1,0 +1,45 @@
+{
+  "name": "张秀英",
+  "name_en": "Zhang Xiuying",
+  "slug": "grandma_zhangxiuying",
+  "relationship": "祖母",
+  "relationship_en": "Paternal grandmother",
+  "alias": "奶奶",
+  "alias_en": "Grandma",
+  "born": "1935",
+  "passed": "2020",
+  "birth_place": "河北省石家庄市",
+  "occupation": "国营纺织厂三班倒挡车工 (Three-shift loom operator, state-owned textile factory)",
+  "created_at": "2026-04-06",
+  "updated_at": "2026-05-10",
+  "version": 1,
+  "confidence": 71,
+  "is_example": true,
+  "fictional": true,
+  "sources": {
+    "wechat_messages": 96,
+    "sms_messages": 0,
+    "photos": 31,
+    "social_posts": 0,
+    "documents": 2,
+    "oral_memories": 22,
+    "third_party": 9
+  },
+  "tags": [
+    "30后",
+    "经历过文革",
+    "唠叨的妈妈/奶奶",
+    "通过行动表达",
+    "吃亏是福",
+    "节俭",
+    "话多爱唠叨",
+    "情感型"
+  ],
+  "corrections_count": 0,
+  "validation": {
+    "voice_check": true,
+    "memory_check": true,
+    "wisdom_check": true
+  },
+  "notes": "Demo soul. Most of her WeChat messages came late in life when 王建国 set up a smartphone for her — short, frequent, repetitive in the way 奶奶 messages often are. Fictional. See examples/wang_family/README.md."
+}

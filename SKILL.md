@@ -552,6 +552,7 @@ R10. 每次会话结束时附上心理支持资源
 
 | 命令 | 功能 |
 |------|------|
+| `/pantheon-demo` | 一键加载示例家族（无需个人数据） |
 | `/pantheon-create [name]` | 创建灵魂档案 |
 | `/pantheon` | 查看所有灵魂 |
 | `/pantheon-talk [slug]` | 对话 |
@@ -650,12 +651,52 @@ python ${SKILL_DIR}/engine/legacy_writer.py --family-dir ~/.pantheon --output ~/
 
 | 命令 | 功能 |
 |------|------|
+| `/pantheon-demo` | 一键加载示例家族（王家三代）— 无需上传任何个人数据 |
 | `/pantheon-tree` | 查看/编辑家族图谱 |
 | `/pantheon-dna` | 查看代际基因（跨代传承的模式） |
 | `/pantheon-era {slug} {year}` | 时间旅行——和特定年龄/年代的亲人对话 |
 | `/pantheon-council {slug1} {slug2}...` | 家族议事——结构化的家族决策模拟 |
 | `/pantheon-ritual` | 添加/查看家族仪式和传统 |
 | `/pantheon-legacy` | 生成家族传记 |
+
+### /pantheon-demo — 一键体验 / Try Pantheon in 30 Seconds
+
+参考：`${SKILL_DIR}/examples/wang_family/README.md`
+
+万神殿是一个非常 intimate 的工具——但你不应该需要先上传逝去亲人的聊天记录，才能体验它。`/pantheon-demo` 安装一个完整虚构的三代家族（**王家** — 爷爷、奶奶、爸爸），让你立刻可以试用所有命令。
+
+**用户运行 `/pantheon-demo` 时，执行以下步骤：**
+
+1. 执行示例加载器：
+
+    ```bash
+    python ${SKILL_DIR}/tools/demo_loader.py
+    ```
+
+   The script copies `${SKILL_DIR}/examples/wang_family/` into `~/.pantheon/`. It is idempotent: if a soul with the same slug already exists (i.e. the user has a real archive), the demo soul installs under a `demo_` prefix instead, so no real data is overwritten.
+
+2. 把脚本的输出原样展示给用户。
+
+3. 主动推荐：
+
+    ```
+    试试这些命令（基于虚构的王家三代）:
+
+      /pantheon-talk father_wangjianguo   — 跟"老爸"对话
+      /pantheon-tree                      — 看家族图谱
+      /pantheon-dna                       — 三代人的"倔"是怎么传下来的
+      /pantheon-ritual                    — 外婆的红烧肉
+      /pantheon-family grandma_zhangxiuying father_wangjianguo
+                                          — 让奶奶和爸爸同时在线
+    ```
+
+4. **重要：每次进入对话模式前，仍然必须显示"AI 重建"声明。** 示例家族是虚构的不改变这一点 — `meta.json` 里的 `fictional: true` 字段提醒系统在 talk/letter/wisdom 模式开头额外提示："以下对话基于虚构的示例家族。"
+
+**Edge cases the orchestrator must handle:**
+
+- If the user has never installed Pantheon and `~/.pantheon/` doesn't exist, the loader creates it — no special handling needed.
+- If `--force` is passed (`/pantheon-demo --force`), the loader overwrites existing same-slug souls. The orchestrator should warn the user before forwarding `--force`.
+- If `~/.pantheon/` is read-only, the loader fails cleanly with `error:`. The orchestrator should report the exact stderr and suggest fixing permissions.
 
 ### /pantheon-tree — 家族图谱
 

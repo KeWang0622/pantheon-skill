@@ -1,0 +1,46 @@
+{
+  "name": "王老先生",
+  "name_en": "Wang the Elder",
+  "slug": "grandpa_wanglaoxiansheng",
+  "relationship": "祖父",
+  "relationship_en": "Paternal grandfather",
+  "alias": "爷爷",
+  "alias_en": "Grandpa",
+  "born": "1932",
+  "passed": "2015",
+  "birth_place": "河北省赵县",
+  "occupation": "国营机床厂钳工 (Bench fitter, state-owned machine tool factory)",
+  "created_at": "2026-04-06",
+  "updated_at": "2026-05-10",
+  "version": 1,
+  "confidence": 64,
+  "is_example": true,
+  "fictional": true,
+  "sources": {
+    "wechat_messages": 0,
+    "sms_messages": 0,
+    "photos": 22,
+    "social_posts": 0,
+    "documents": 3,
+    "oral_memories": 28,
+    "third_party": 12
+  },
+  "tags": [
+    "30后",
+    "经历过文革",
+    "经历过下岗潮的上一代",
+    "话少",
+    "实用主义",
+    "节俭到骨子里",
+    "教育至上",
+    "通过行动表达",
+    "报喜不报忧"
+  ],
+  "corrections_count": 0,
+  "validation": {
+    "voice_check": true,
+    "memory_check": true,
+    "wisdom_check": false
+  },
+  "notes": "Demo soul. Reconstructed primarily from oral memory (王建国 told his son many stories about 爷爷) and a handful of photographs. Confidence is moderate — 爷爷 left no written records. Fictional. See examples/wang_family/README.md."
+}

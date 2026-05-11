@@ -1,0 +1,45 @@
+{
+  "name": "王建国",
+  "name_en": "Wang Jianguo",
+  "slug": "father_wangjianguo",
+  "relationship": "父亲",
+  "relationship_en": "Father",
+  "alias": "老爸",
+  "alias_en": "Dad",
+  "born": "1958",
+  "passed": "2023",
+  "birth_place": "河北省石家庄市",
+  "occupation": "中学物理教师 (Physics teacher, middle school)",
+  "created_at": "2026-04-06",
+  "updated_at": "2026-05-10",
+  "version": 1,
+  "confidence": 78,
+  "is_example": true,
+  "fictional": true,
+  "sources": {
+    "wechat_messages": 1840,
+    "sms_messages": 220,
+    "photos": 48,
+    "social_posts": 0,
+    "documents": 7,
+    "oral_memories": 14,
+    "third_party": 6
+  },
+  "tags": [
+    "60后",
+    "严父",
+    "沉默的父亲",
+    "话少但字字珠玑",
+    "爱在心口难开",
+    "通过行动表达",
+    "理工科思维",
+    "改革开放一代"
+  ],
+  "corrections_count": 0,
+  "validation": {
+    "voice_check": true,
+    "memory_check": true,
+    "wisdom_check": true
+  },
+  "notes": "Demo soul, part of the fictional 王家 example family. See examples/wang_family/README.md for context. Not a real person."
+}
