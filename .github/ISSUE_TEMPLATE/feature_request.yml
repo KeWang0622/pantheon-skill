@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest a new feature, parser, or improvement.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening: please read [`CONTRIBUTING.md`](../blob/main/.github/CONTRIBUTING.md) and [`ETHICS.md`](../blob/main/ETHICS.md). Features that monetize grief, speculate beyond source data, or weaken the AI-reconstruction disclosure will not be accepted.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation a user is in when this feature would help.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: ethics
+    attributes:
+      label: Ethics self-check
+      options:
+        - label: This feature does not require uploading any user data off the machine.
+          required: true
+        - label: This feature does not synthesize content beyond what the source data supports.
+          required: true
+        - label: This feature does not commercialize soul archives or grief.
+          required: true
+        - label: This feature does not weaken the "AI reconstruction" disclosure shown at the start of every dialog.
+          required: true

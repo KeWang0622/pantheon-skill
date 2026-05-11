@@ -3,3 +3,5 @@
 
 # Optional — for photo EXIF metadata extraction
 Pillow>=9.0.0
+
+# Dev / CI dependencies (pytest, PyYAML) live in requirements-dev.txt.

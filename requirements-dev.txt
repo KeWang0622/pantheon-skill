@@ -1,0 +1,5 @@
+# Dev / CI dependencies — not needed at runtime.
+-r requirements.txt
+
+pytest>=7.0
+PyYAML>=6.0

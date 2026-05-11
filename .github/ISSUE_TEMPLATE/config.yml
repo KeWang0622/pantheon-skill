@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussion
+    url: https://github.com/KeWang0622/pantheon-skill/discussions
+    about: Questions about Pantheon, the underlying methodology, or how to model a specific family situation.
+  - name: Crisis support
+    url: https://github.com/KeWang0622/pantheon-skill#crisis-support
+    about: If you are experiencing acute grief or distress, please reach out to a hotline before opening an issue.
